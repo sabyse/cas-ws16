@@ -22,7 +22,7 @@ public class AuftragsGenGenerator implements PrologGenerator{
 									+ ((Auftragsgenerator) auftragsGen)
 											.getAktivitaetsrate() + ").");
 					for (Ort o : ((Auftragsgenerator) auftragsGen)
-							.zuestandigFuer()) {
+							.zustaendigeOrte()) {
 						cf.addToSection(2, "zustaendig(" + auftragsGen.getUID()
 								+ "," + o.getUID() + ").");
 					}

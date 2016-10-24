@@ -20,7 +20,7 @@ public class OrtGenerator implements PrologGenerator {
 					ort -> {
 						cf.addToSection(1, "ort("+ort.getUID()+").");
 						for(Strasse s : ((Ort)ort).getAngebunden()){
-							cf.addToSection(2, "strasse("+s.start.getUID()+","+s.ende.getUID()+","+ s.kosten+ ")");
+							cf.addToSection(2, "strasse("+s.getStart().getUID()+","+s.getEnde().getUID()+","+ s.getKosten()+ ")");
 						}
 						for(LocalServices l : ((Ort)ort).getLocalServices()){
 							cf.addToSection(2, "linkLocal(" + ort.getUID() +"," + l.getID() + ").");

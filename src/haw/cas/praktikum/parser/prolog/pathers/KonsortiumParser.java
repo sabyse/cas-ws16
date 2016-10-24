@@ -2,7 +2,7 @@ package haw.cas.praktikum.parser.prolog.pathers;
 
 import haw.cas.praktikum.objects.Akteur;
 import haw.cas.praktikum.objects.Konsortium;
-import haw.cas.praktikum.parser.MObjektRepository;
+import haw.cas.praktikum.parser.MObjektReposetory;
 import haw.cas.praktikum.parser.prolog.PrologParser;
 
 public class KonsortiumParser implements PrologParser {
@@ -13,7 +13,7 @@ public class KonsortiumParser implements PrologParser {
 		String name = param[0];
 		String besitzerS = param[1];
 		
-		Akteur besitzer = (Akteur) MObjektRepository.get(besitzerS);
+		Akteur besitzer = (Akteur) MObjektReposetory.get(besitzerS);
 		new Konsortium(name, besitzer);
 	}
 

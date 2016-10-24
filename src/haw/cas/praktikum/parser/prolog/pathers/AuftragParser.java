@@ -1,8 +1,9 @@
 package haw.cas.praktikum.parser.prolog.pathers;
 
+import haw.cas.praktikum.objects.Akteur;
 import haw.cas.praktikum.objects.Auftrag;
 import haw.cas.praktikum.objects.Ort;
-import haw.cas.praktikum.parser.MObjektRepository;
+import haw.cas.praktikum.parser.MObjektReposetory;
 import haw.cas.praktikum.parser.prolog.PrologParser;
 
 public class AuftragParser implements PrologParser {
@@ -17,8 +18,8 @@ public class AuftragParser implements PrologParser {
 		String gewinnS = param[3];
 		String mengeS = param[4];
 		
-		Ort startpos = (Ort) MObjektRepository.get(startO);
-		Ort endpos = (Ort) MObjektRepository.get(endO);
+		Ort startpos = (Ort) MObjektReposetory.get(startO);
+		Ort endpos = (Ort) MObjektReposetory.get(endO);
 		Double gewinn = Double.parseDouble(gewinnS);
 		int menge = Integer.parseInt(mengeS);
 		

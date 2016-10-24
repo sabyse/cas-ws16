@@ -2,7 +2,7 @@ package haw.cas.praktikum.parser.prolog.pathers;
 
 import haw.cas.praktikum.objects.Handelsregister;
 import haw.cas.praktikum.objects.Konsortium;
-import haw.cas.praktikum.parser.MObjektRepository;
+import haw.cas.praktikum.parser.MObjektReposetory;
 import haw.cas.praktikum.parser.prolog.PrologParser;
 
 public class EingetragenParser implements PrologParser {
@@ -14,8 +14,8 @@ public class EingetragenParser implements PrologParser {
 		String nameK = param[0];
 		String nameH = param[1];
 
-		Konsortium k = (Konsortium) MObjektRepository.get(nameK);
-		Handelsregister h = (Handelsregister) MObjektRepository.get(nameH);
+		Konsortium k = (Konsortium) MObjektReposetory.get(nameK);
+		Handelsregister h = (Handelsregister) MObjektReposetory.get(nameH);
 		k.eintragen(h);
 
 	}

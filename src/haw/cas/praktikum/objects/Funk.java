@@ -11,6 +11,9 @@ public class Funk extends MObjekt implements LocalServices {
 	private List<Ort> verfuegbar;
 	//TODO : Fehlt hier nicht was?
 	
+	public Funk(String name){
+		this(name,new ArrayList<>());
+	}
 	public Funk(String name, List<Ort> verfuegbareOrte){
 		super(name);
 		this.verfuegbar = verfuegbareOrte;
