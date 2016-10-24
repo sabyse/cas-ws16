@@ -1,21 +1,54 @@
 package haw.cas.praktikum.objects;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import haw.cas.praktikum.parser.Obj.MObjekt;
 
-//Serialisierbar über ORT, deserialisiert direkt
+//Serialisierbar ueber ORT, deserialisiert direkt
 public class Strasse{
+
+	private Ort start;
+	private Ort ende;
+	private int kosten;
+	private List<Ereignis> ereignisList;
 
 	public Strasse(Ort start,Ort ende,int kosten){
 		this.start=start;
 		this.ende=ende;
 		this.kosten=kosten;
+		this.ereignisList = new ArrayList<>();
 	}
 
-	public Ort start;
-	public Ort ende;
-	public int kosten;
-	public List<Ereignis> ereignisList;
+	public Ort getStart() {
+		return start;
+	}
 
+	public void setStart(Ort start) {
+		this.start = start;
+	}
+
+	public Ort getEnde() {
+		return ende;
+	}
+
+	public void setEnde(Ort ende) {
+		this.ende = ende;
+	}
+
+	public int getKosten() {
+		return kosten;
+	}
+
+	public void setKosten(int kosten) {
+		this.kosten = kosten;
+	}
+
+	public void addEreignis(Ereignis e) {
+		ereignisList.add(e);
+	}
+
+	public void removeEreignis(Ereignis e) {
+		ereignisList.remove(e);
+	}
 }

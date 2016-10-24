@@ -3,8 +3,7 @@ package haw.cas.praktikum.parser.prolog.pathers;
 import haw.cas.praktikum.objects.Auftragsgenerator;
 import haw.cas.praktikum.objects.Ereignisgenerator;
 import haw.cas.praktikum.objects.Ort;
-import haw.cas.praktikum.objects.Strasse;
-import haw.cas.praktikum.parser.MObjektReposetory;
+import haw.cas.praktikum.parser.MObjektRepository;
 import haw.cas.praktikum.parser.Obj.MObjekt;
 import haw.cas.praktikum.parser.prolog.PrologParser;
 
@@ -18,8 +17,8 @@ public class ZustaendigParser implements PrologParser {
 		String genS = param[0];
 		String ortS = param[1];
 
-		MObjekt gen = MObjektReposetory.get(genS);
-		MObjekt ort = MObjektReposetory.get(ortS);
+		MObjekt gen = MObjektRepository.get(genS);
+		MObjekt ort = MObjektRepository.get(ortS);
 
 		// TODO:Null check
 

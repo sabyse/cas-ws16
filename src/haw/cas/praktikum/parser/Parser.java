@@ -52,7 +52,7 @@ public final class Parser {
 
 	static void init() {
 
-		MObjektReposetory.clear();
+		MObjektRepository.clear();
 
 		functionMap = new HashMap<>();
 		functionMap.put("print", new Printer());
@@ -111,7 +111,7 @@ public final class Parser {
 	public static void store(String datei) {
 		ConfigFile cf = new SimpleConfigFile(datei);
 		for (PrologGenerator pg : generatorList) {
-			pg.generate(cf, MObjektReposetory.getStream());
+			pg.generate(cf, MObjektRepository.getStream());
 		}
 		;
 		cf.store();

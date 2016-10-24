@@ -1,28 +1,28 @@
 package haw.cas.praktikum.objects;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import haw.cas.praktikum.parser.Obj.MObjekt;
 
 
 //%auftrag(ID,ID-ort-Start,ID-ort-Ende,double-Gewinn,int-menge)
-//TODO:Serialisiuerng . . . 
-public class Auftrag extends MObjekt{
+//TODO:Serialisierung . . .
+public class Auftrag extends MObjekt {
 	private Ort startOrt;
 	private Ort endOrt;
 	private double gewinn;
 	private int menge;
-	
+	private List<Auftrag> subAuftraege;
+
 	public Auftrag(String name, Ort startOrt, Ort endOrt, double gewinn, int menge){
 		super(name);
 		this.startOrt = startOrt;
 		this.endOrt = endOrt;
 		this.gewinn = gewinn;
 		this.menge = menge;
+		this.subAuftraege = new ArrayList<>();
 	}
-
-	
-	private List<Auftrag> subAuftraege;
 
 	public Ort getStart() {
 		return startOrt;
@@ -44,7 +44,7 @@ public class Auftrag extends MObjekt{
 		return gewinn;
 	}
 
-	public void setWert(Double wert) {
+	public void setWert(double wert) {
 		this.gewinn = wert;
 	}
 
@@ -67,4 +67,5 @@ public class Auftrag extends MObjekt{
 	public List<Auftrag> getAllSubAuftrag() {
 		return subAuftraege;
 	}
+
 }

@@ -2,7 +2,7 @@ package haw.cas.praktikum.parser.prolog.pathers;
 
 import haw.cas.praktikum.objects.Ort;
 import haw.cas.praktikum.objects.Strasse;
-import haw.cas.praktikum.parser.MObjektReposetory;
+import haw.cas.praktikum.parser.MObjektRepository;
 import haw.cas.praktikum.parser.Obj.MObjekt;
 import haw.cas.praktikum.parser.prolog.PrologParser;
 
@@ -16,8 +16,8 @@ public class StrasseParser implements PrologParser{
 		String ende   = param[1];
 		String kosten = param[2];
 		
-		MObjekt startO =  MObjektReposetory.get(start);
-		MObjekt endeO =  MObjektReposetory.get(ende);
+		MObjekt startO =  MObjektRepository.get(start);
+		MObjekt endeO =  MObjektRepository.get(ende);
 		
 		//TODO:Null check
 		

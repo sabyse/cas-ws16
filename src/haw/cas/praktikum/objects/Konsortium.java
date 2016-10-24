@@ -8,31 +8,38 @@ import java.util.List;
 //TODO:Serialisiuerng . . . 
 public class Konsortium extends MObjekt {
 
-	private List<Akteur> teilnehmer = new ArrayList<>();
+	private List<Akteur> teilnehmer;
 	private Akteur besitzer;
 	private Handelsregister handelsregister;
 
 	public Konsortium(String name, Akteur besitzer) {
 		super(name);
 		this.besitzer = besitzer;
+		this.teilnehmer = new ArrayList<>();
 		// Wäre das nicht sinnvoller? teilnehmer.add(besitzer);
 	}
 
-	/**
-	 * 
-	 * @param akteur
-	 */
 	public void addTeilnehmer(Akteur akteur) {
 		teilnehmer.add(akteur);
+	}
+
+	public void removeTeilnehmer(Akteur akteur) {
+		teilnehmer.remove(akteur);
 	}
 
 	public List<Akteur> getTeilnehmer() {
 		return this.teilnehmer;
 	}
 
+	public void setTeilnehmer(List<Akteur> teilnehmer) {
+		this.teilnehmer = teilnehmer;
+	}
+
 	public Akteur getInhaber() {
 		return besitzer;
 	}
+
+	// ueberfluessig... Handelsregister hat Liste von Konsortien
 
 	public void eintragen(Handelsregister hr) {
 		this.handelsregister = hr;
@@ -40,18 +47,6 @@ public class Konsortium extends MObjekt {
 
 	public Handelsregister eingetragenIn() {
 		return handelsregister;
-	}
-
-	/**
-	 * 
-	 * @param akteur
-	 */
-	public void deleteTeilnehmer(Akteur akteur) {
-		teilnehmer.remove(akteur);
-	}
-
-	public void setTeilnehmer(List<Akteur> teilnehmer) {
-		this.teilnehmer = teilnehmer;
 	}
 
 }

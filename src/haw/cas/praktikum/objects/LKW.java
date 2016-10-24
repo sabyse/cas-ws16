@@ -6,59 +6,63 @@ import java.util.ArrayList;
 import java.util.List;
 //%lkw(ID,ID-akteur,ID-ort-POS,int-Kapazität)
 
-//TODO:Serialisiuerng . . . 
-public class LKW extends MObjekt{
+//TODO:Serialisierung . . .
+public class LKW extends MObjekt {
 
-	private Ort pos;		//TODO:Ort oder Straße als POS ?
-	private Akteur besitzer;
-	private int ladekapazitaet;
-	private ArrayList<Auftrag> ladung = new ArrayList<>();
+    private Ort pos;        //TODO:Ort oder Straße als POS ?
+    private Akteur besitzer;
+    private int ladekapazitaet;
+    private List<Auftrag> ladung;
 
-	public LKW(String name, Akteur besitzer, Ort pos, int ladekapazitaet) {
-		super(name);
-		this.besitzer = besitzer;
-		this.pos = pos;
-		this.ladekapazitaet = ladekapazitaet;		
-	}
+    public LKW(String name, Akteur besitzer, Ort pos, int ladekapazitaet) {
+        super(name);
+        this.besitzer = besitzer;
+        this.pos = pos;
+        this.ladekapazitaet = ladekapazitaet;
+        this.ladung = new ArrayList<>();
+    }
 
-	public void addAuftrag(Auftrag auftrag) {
-		ladung.add(auftrag);
-	}
-	
-	public Akteur getBesitzer(){
-		return besitzer;
-	}
+    public void addAuftrag(Auftrag auftrag) {
+        ladung.add(auftrag);
+    }
 
-	public void removeAuftrag(Auftrag auftrag) {
-		ladung.remove(auftrag);
-	}
+    public void removeAuftrag(Auftrag auftrag) {
+        ladung.remove(auftrag);
+    }
 
-	public Ort getPos() {
-		return pos;
-	}
+    public Akteur getBesitzer() {
+        return besitzer;
+    }
 
-	public void setPos(Ort pos) {
-		this.pos = pos;
-	}
+    public Ort getPos() {
+        return pos;
+    }
 
-	public int getLadekapazitaet() {
-		return ladekapazitaet;
-	}
+    public void setPos(Ort pos) {
+        this.pos = pos;
+    }
 
-	public void setLadekapazitaet(int ladekapazitaet) {
-		this.ladekapazitaet = ladekapazitaet;
-	}
+    public int getLadekapazitaet() {
+        return ladekapazitaet;
+    }
 
-	public int getFuellstand() {
-		//TODO:errechnen aus aufträgen
-		return -1;
-	}
+    public void setLadekapazitaet(int ladekapazitaet) {
+        this.ladekapazitaet = ladekapazitaet;
+    }
 
-	public List<Auftrag> getLadung() {
-		return ladung;
-	}
+    public int getFuellstand() {
+        //TODO:errechnen aus aufträgen
+        return -1;
+    }
 
-	public void setLadung(ArrayList<Auftrag> ladung) {
-		this.ladung = ladung;
-	}
+    public List<Auftrag> getLadung() {
+        return ladung;
+    }
+
+    // macht es Sinn, die ganze Ladung auf einmal zu ersetzen?
+
+    public void setLadung(ArrayList<Auftrag> ladung) {
+        this.ladung = ladung;
+    }
+
 }

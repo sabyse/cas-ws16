@@ -5,43 +5,57 @@ import java.util.List;
 
 import haw.cas.praktikum.parser.Obj.MObjekt;
 
-//TODO:Serialisiuerng . . . 
+//TODO:Serialisierung . . .
 public class Auftragsgenerator extends MObjekt {
 
-	public ArrayList<Ort> zustaendigFuer = new ArrayList<>(); // TODO:Zust�ndigkeit
-																// ist �ber die
-																// B�rsen
-																// geregelt, ein
-																// verweis auf
-																// das
-																// stra�ennetz
-																// ist notwendig
-	public int aktivitaetsrate;
-	public List<Boerse> zustaendigeBoersen;
+    // TODO:Zustaendigkeit
+    // ist ueber die Boersen geregelt, ein Verweis auf
+    // das Strassennetz ist notwendig
 
-	public Auftragsgenerator(String name, int aktivitaetsrate) {
-		super(name);
-		this.aktivitaetsrate = aktivitaetsrate;
-	}
+    private int aktivitaetsrate;
+    private List<Ort> zustaendigFuer;
+    private List<Boerse> zustaendigeBoersen;
 
-	public Auftragsgenerator(int aktivitaetsrate) {
-		super();
-		this.aktivitaetsrate = aktivitaetsrate;
-	}
+    public Auftragsgenerator(String name, int aktivitaetsrate) {
+        super(name);
+        this.aktivitaetsrate = aktivitaetsrate;
+        this.zustaendigFuer = new ArrayList<>();
+        this.zustaendigeBoersen = new ArrayList<>();
+    }
 
-	public int getAktivitaetsrate() {
-		return aktivitaetsrate;
-	}
+    public Auftragsgenerator(int aktivitaetsrate) {
+        super();
+        this.aktivitaetsrate = aktivitaetsrate;
+        this.zustaendigFuer = new ArrayList<>();
+        this.zustaendigeBoersen = new ArrayList<>();
+    }
 
-	public void setAktivitaetsrate(int aktivitaetsrate) {
-		this.aktivitaetsrate = aktivitaetsrate;
-	}
+    public int getAktivitaetsrate() {
+        return aktivitaetsrate;
+    }
 
-	public void bereichErweitern(Ort o) {
-		zustaendigFuer.add(o);
-	}
+    public void setAktivitaetsrate(int aktivitaetsrate) {
+        this.aktivitaetsrate = aktivitaetsrate;
+    }
 
-	public ArrayList<Ort> zuestandigFuer() {
-		return zustaendigFuer;
-	}
+    public void bereichErweitern(Ort o) {
+        zustaendigFuer.add(o);
+    }
+
+    public void bereichVerkleinern(Ort o) {
+        zustaendigFuer.remove(o);
+    }
+
+    public void addBoerse(Boerse b) {
+        zustaendigeBoersen.add(b);
+    }
+
+    public void removeBoerse(Boerse b) {
+        zustaendigeBoersen.remove(b);
+    }
+
+    public List<Ort> zustaendigeOrte() {
+        return zustaendigFuer;
+    }
+
 }

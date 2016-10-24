@@ -3,13 +3,16 @@ package haw.cas.praktikum.objects;
 import haw.cas.praktikum.parser.Obj.MObjekt;
 
 import java.util.ArrayList;
+import java.util.List;
 
 //TODO:Serialisiuerng . . . 
 public class SchwarzesBrett extends MObjekt implements LocalServices {
-	private ArrayList<Nachricht> angepinnt = new ArrayList<>();
+
+	private List<Nachricht> angepinnt;
 	
 	public SchwarzesBrett(String name){
 		super(name);
+		this.angepinnt = new ArrayList<>();
 	}
 
 	@Override
@@ -21,7 +24,7 @@ public class SchwarzesBrett extends MObjekt implements LocalServices {
 		angepinnt.add(n);
 	}
 	
-	public ArrayList<Nachricht> getNachrichten(){
+	public List<Nachricht> getNachrichten(){
 		return angepinnt;
 	}
 

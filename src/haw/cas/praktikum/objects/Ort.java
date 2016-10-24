@@ -5,68 +5,59 @@ import java.util.List;
 
 import haw.cas.praktikum.parser.Obj.MObjekt;
 
-//TODO:Serialisiuerng . . . 
+//TODO:Serialisierung . . .
 public class Ort extends MObjekt {
 
-	public List<Strasse> angebunden;
-	public List<LocalServices> localServices;
+    private List<Strasse> angebunden;
+    private List<LocalServices> localServices;
 
-	public Ort(String name) {
-		this(name,new ArrayList<>(),new ArrayList<>());
-	}
-	
-	private Ort(String name, List<Strasse> angebunden, List<LocalServices> localServices) {
-		super(name);
-		this.angebunden = angebunden;
-		this.localServices = localServices;
-	}
-	
+    public Ort(String name) {
+        this(name, new ArrayList<>(), new ArrayList<>());
+    }
 
-	public List<Strasse> getOutgoingStreets(){
-		return angebunden;
-	}
-	public void addOutgoingStreet(Strasse street) {
-		angebunden.add(street);
-	}
+    private Ort(String name, List<Strasse> angebunden, List<LocalServices> localServices) {
+        super(name);
+        this.angebunden = angebunden;
+        this.localServices = localServices;
+    }
 
-	
-	public void addLocalService(LocalServices localService) {
-		localServices.add(localService);
-	}
+    public List<Strasse> getAngebunden() {
+        return angebunden;
+    }
 
-	public void removeLocalService(LocalServices localService) {
-		localServices.remove(localService);
-	}
+    public void setAngebunden(List<Strasse> angebunden) {
+        this.angebunden = angebunden;
+    }
 
-	public void addStrasse(Strasse strasse) {
-		angebunden.add(strasse);
-	}
+    public void addLocalService(LocalServices localService) {
+        localServices.add(localService);
+    }
 
-	public void removeStrasse(Strasse strasse) {
-		angebunden.remove(strasse);
-	}
+    public void removeLocalService(LocalServices localService) {
+        localServices.remove(localService);
+    }
 
-	public String getName() {
-		return super.getUID();
-	}
+    public void addStrasse(Strasse strasse) {
+        angebunden.add(strasse);
+    }
 
-	public void setName(String name) {
-		super.updateKey(name);
-	}
+    public void removeStrasse(Strasse strasse) {
+        angebunden.remove(strasse);
+    }
 
-	public List<Strasse> getAngebunden() {
-		return angebunden;
-	}
+    public String getName() {
+        return super.getUID();
+    }
 
-	public void setAngebunden(List<Strasse> angebunden) {
-		this.angebunden = angebunden;
-	}
+    public void setName(String name) {
+        super.updateKey(name);
+    }
 
-	public List<LocalServices> getLocalServices() {
-		return localServices;
-	}
+    public List<LocalServices> getLocalServices() {
+        return localServices;
+    }
 
-	public void setLocalServices(List<LocalServices> localServices) {
-		this.localServices = localServices;
-	}
+    public void setLocalServices(List<LocalServices> localServices) {
+        this.localServices = localServices;
+    }
 }

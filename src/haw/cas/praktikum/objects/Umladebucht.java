@@ -4,7 +4,7 @@ import java.util.List;
 
 import haw.cas.praktikum.parser.Obj.MObjekt;
 
-//TODO:Serialisiuerng . . . 
+//TODO:Serialisierung . . .
 public class Umladebucht extends MObjekt implements LocalServices {
 	public List<Auftrag> verfuegbar;
 	

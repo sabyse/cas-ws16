@@ -4,7 +4,7 @@ import java.util.List;
 
 import haw.cas.praktikum.parser.Obj.MObjekt;
 
-//TODO:Serialisiuerng . . . 
+//TODO:Serialisierung . . .
 public class Strassennetz extends MObjekt{
 
 	public List<Ort> orte;

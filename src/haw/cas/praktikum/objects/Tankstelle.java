@@ -4,7 +4,7 @@ import haw.cas.praktikum.parser.Obj.MObjekt;
 import haw.cas.praktikum.zeittyp.ZeitTyp;
 
 
-//TODO:Serialisiuerng . . . 
+//TODO:Serialisierung . . .
 public class Tankstelle extends MObjekt implements LocalServices {
 
 	private Double preis; 

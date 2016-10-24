@@ -3,7 +3,7 @@ package haw.cas.praktikum.parser.prolog.pathers;
 import haw.cas.praktikum.objects.Akteur;
 import haw.cas.praktikum.objects.Nachricht;
 import haw.cas.praktikum.objects.SchwarzesBrett;
-import haw.cas.praktikum.parser.MObjektReposetory;
+import haw.cas.praktikum.parser.MObjektRepository;
 import haw.cas.praktikum.parser.prolog.PrologParser;
 import haw.cas.praktikum.zeittyp.ZeitTyp;
 
@@ -18,8 +18,8 @@ public class NachrichtParser implements PrologParser {
 		String timestampS = param[3];
 		
 		ZeitTyp zeitPunkt = new ZeitTyp(timestampS);
-		SchwarzesBrett sb = (SchwarzesBrett) MObjektReposetory.get(anBrettS);
-		Akteur ersteller = (Akteur) MObjektReposetory.get(erstellerS);
+		SchwarzesBrett sb = (SchwarzesBrett) MObjektRepository.get(anBrettS);
+		Akteur ersteller = (Akteur) MObjektRepository.get(erstellerS);
 				
 		
 		Nachricht n = new Nachricht(sb,inhaltS,ersteller,zeitPunkt);

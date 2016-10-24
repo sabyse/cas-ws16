@@ -3,7 +3,7 @@ package haw.cas.praktikum.parser.prolog.pathers;
 import haw.cas.praktikum.objects.Akteur;
 import haw.cas.praktikum.objects.LKW;
 import haw.cas.praktikum.objects.Ort;
-import haw.cas.praktikum.parser.MObjektReposetory;
+import haw.cas.praktikum.parser.MObjektRepository;
 import haw.cas.praktikum.parser.prolog.PrologParser;
 
 public class LKWParser implements PrologParser{
@@ -16,8 +16,8 @@ public class LKWParser implements PrologParser{
 		String posS = param[2];
 		String kapazitaetS = param[3];
 		
-		Akteur akteur = (Akteur) MObjektReposetory.get(akteurS);
-		Ort pos = (Ort) MObjektReposetory.get(posS);
+		Akteur akteur = (Akteur) MObjektRepository.get(akteurS);
+		Ort pos = (Ort) MObjektRepository.get(posS);
 		int kapazitaet = Integer.parseInt(kapazitaetS);
 		
 		new LKW(name, akteur, pos, kapazitaet);
