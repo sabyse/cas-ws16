@@ -1,5 +1,7 @@
 package haw.cas.praktikum.objects;
 
+import java.security.Timestamp;
+
 import haw.cas.praktikum.parser.Obj.MObjekt;
 import haw.cas.praktikum.zeittyp.ZeitTyp;
 
@@ -9,7 +11,15 @@ public class Tankstelle extends MObjekt implements LocalServices {
 
 	private Double preis; 
 	private ZeitTyp kostenZeit;
-	private Akteur belegtDurch;
+	private belegung used;
+	private static class belegung{
+		belegung(LKW who){
+			belegtDurch=who;
+			start=ZeitTyp.now();
+		}
+		public LKW belegtDurch;
+		public ZeitTyp start;			
+	}
 	
 	
 	
@@ -27,8 +37,16 @@ public class Tankstelle extends MObjekt implements LocalServices {
 		return kostenZeit;
 	}
 	
-	public Akteur belegtDurch(){
-		return belegtDurch;
+	public LKW belegtDurch(){
+		if(used==null)return null;
+		return used.belegtDurch;
+	}
+	
+	public void setBelegt(LKW who){
+		if(who==null)used=null;
+		else{
+			used=new belegung(who);
+		}
 	}
 
 	@Override

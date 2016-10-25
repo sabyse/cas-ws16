@@ -2,6 +2,7 @@ package haw.cas.praktikum.parser.prolog.generators;
 
 import java.util.stream.Stream;
 
+import haw.cas.praktikum.objects.Ereignis;
 import haw.cas.praktikum.objects.LocalServices;
 import haw.cas.praktikum.objects.Ort;
 import haw.cas.praktikum.objects.Strasse;
@@ -9,7 +10,7 @@ import haw.cas.praktikum.parser.Obj.MObjekt;
 import haw.cas.praktikum.parser.configFile.ConfigFile;
 import haw.cas.praktikum.parser.prolog.PrologGenerator;
 
-public class OrtGenerator implements PrologGenerator {
+public class NetGenerator implements PrologGenerator {
 //TODO: vileicht f�r typen registriern ? (Observer)
 //TODO: Reinvol vileicht automatioch durch dependencies managen
 	
@@ -20,7 +21,13 @@ public class OrtGenerator implements PrologGenerator {
 					ort -> {
 						cf.addToSection(1, "ort("+ort.getUID()+").");
 						for(Strasse s : ((Ort)ort).getAngebunden()){
-							cf.addToSection(2, "strasse("+s.getStart().getUID()+","+s.getEnde().getUID()+","+ s.getKosten()+ ")");
+							cf.addToSection(2, "strasse("+s.getStart().getUID()+","+s.getEnde().getUID()+","+ s.getKosten()+ ").");
+							for(Ereignis e : s.getEreignise()){
+								cf.addToSection(3, "ereignis("	+s.getStart().getUID()+","
+															 	+s.getEnde().getUID()+","
+														 		+e.getKosten()+ ","
+															 	+e.getEnde()+").");
+							}
 						}
 						for(LocalServices l : ((Ort)ort).getLocalServices()){
 							cf.addToSection(2, "linkLocal(" + ort.getUID() +"," + l.getID() + ").");

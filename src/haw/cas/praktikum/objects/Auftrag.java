@@ -14,7 +14,8 @@ public class Auftrag extends MObjekt {
 	private double gewinn;
 	private int menge;
 	private List<Auftrag> subAuftraege;
-
+	Auftrag parent=null;
+	
 	public Auftrag(String name, Ort startOrt, Ort endOrt, double gewinn, int menge){
 		super(name);
 		this.startOrt = startOrt;
@@ -57,6 +58,7 @@ public class Auftrag extends MObjekt {
 	}
 
 	public void addSubAuftrag(Auftrag auftrag) {
+		auftrag.parent=this;
 		subAuftraege.add(auftrag);
 	}
 

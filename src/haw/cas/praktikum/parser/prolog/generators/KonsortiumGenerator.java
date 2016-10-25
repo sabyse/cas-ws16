@@ -16,18 +16,18 @@ public class KonsortiumGenerator implements PrologGenerator {
 				// Auslagern in andere
 				// Klasse ?
 				k -> {
-					cf.addToSection(1, "konsortium(" + k.getUID() + ","
+					cf.addToSection(2, "konsortium(" + k.getUID() + ","
 							+ ((Konsortium) k).getInhaber().getUID() + ").");
 
 					if (((Konsortium) k).eingetragenIn() != null) {
-						cf.addToSection(2, "eingetragen(" + k.getUID() + ","
+						cf.addToSection(3, "eingetragen(" + k.getUID() + ","
 								+ ((Konsortium) k).eingetragenIn().getUID()
 								+ ").");
 					}
 
 					if (!((Konsortium) k).getTeilnehmer().isEmpty()) {
 						for (Akteur a : ((Konsortium) k).getTeilnehmer()) {
-							cf.addToSection(2, "teilnehmer(" + a.getUID() + ","
+							cf.addToSection(3, "teilnehmer(" + a.getUID() + ","
 									+ k.getUID() + ").");
 						}
 					}

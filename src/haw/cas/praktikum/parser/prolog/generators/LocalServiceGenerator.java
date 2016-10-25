@@ -4,6 +4,7 @@ import haw.cas.praktikum.objects.Auftrag;
 import haw.cas.praktikum.objects.Boerse;
 import haw.cas.praktikum.objects.Funk;
 import haw.cas.praktikum.objects.Handelsregister;
+import haw.cas.praktikum.objects.Konsortium;
 import haw.cas.praktikum.objects.LocalServices;
 import haw.cas.praktikum.objects.Nachricht;
 import haw.cas.praktikum.objects.SchwarzesBrett;
@@ -27,13 +28,16 @@ public class LocalServiceGenerator implements PrologGenerator {
 								+ ((Tankstelle) f).getKosten() + ","
 								+ ((Tankstelle) f).getDauer() + ").");
 						if (((Tankstelle) f).belegtDurch() != null) {
-							cf.addToSection(1, "belegt(" + f.getUID() + ","
+							cf.addToSection(3, "belegt(" + f.getUID() + ","
 									+ ((Tankstelle) f).belegtDurch().getUID()
 									+ ").");
 						}
 					} else if (f instanceof Handelsregister) {
 						cf.addToSection(1, "handelsregister(" + f.getUID()
-								+ ").");
+						+ ").");
+						for(Konsortium k : ((Handelsregister)f).getEintraege()){
+							cf.addToSection(2, "eingetragen("+ k.getUID() + "," + f.getUID() + ").");							
+						}
 
 					} else if (f instanceof Umladebucht) {
 						cf.addToSection(1, "umladebucht(" + f.getUID()
@@ -42,7 +46,6 @@ public class LocalServiceGenerator implements PrologGenerator {
 					} else if (f instanceof Funk) {
 						cf.addToSection(1, "funk(" + f.getUID()
 								+ ").");
-
 					}else if (f instanceof Boerse) {
 						cf.addToSection(1, "boerse(" + f.getUID()
 								+ ").");
@@ -57,11 +60,8 @@ public class LocalServiceGenerator implements PrologGenerator {
 						cf.addToSection(1, "schwarzesbrett(" + f.getUID()
 								+ ").");
 						if (((SchwarzesBrett) f).getNachrichten() != null) {
-							for (Nachricht n : ((SchwarzesBrett) f)
-									.getNachrichten()) {
-								cf.addToSection(
-										1,
-										"sbnachricht(" + n.getSB().getID()
+							for (Nachricht n : ((SchwarzesBrett) f).getNachrichten()) {
+								cf.addToSection(2,"sbnachricht(" + n.getSB().getID()
 												+ "," + n.getContent() + ","
 												+ n.getErsteller().getUID()
 												+ ","

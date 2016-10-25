@@ -4,7 +4,7 @@ import haw.cas.praktikum.objects.Akteur;
 import haw.cas.praktikum.objects.Konsortium;
 import haw.cas.praktikum.objects.LocalServices;
 import haw.cas.praktikum.objects.Ort;
-import haw.cas.praktikum.parser.MObjektReposetory;
+import haw.cas.praktikum.parser.MObjektRepository;
 import haw.cas.praktikum.parser.prolog.PrologParser;
 
 public class TeilnehmerParser implements PrologParser {
@@ -16,8 +16,8 @@ public class TeilnehmerParser implements PrologParser {
 		String akteurS = param[0];
 		String konsS = param[1];
 
-		Akteur akteur = (Akteur) MObjektReposetory.get(akteurS);
-		Konsortium kons = (Konsortium) MObjektReposetory.get(konsS);
+		Akteur akteur = (Akteur) MObjektRepository.get(akteurS);
+		Konsortium kons = (Konsortium) MObjektRepository.get(konsS);
 
 		kons.addTeilnehmer(akteur);
 	}

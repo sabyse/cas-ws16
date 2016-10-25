@@ -3,7 +3,8 @@ package haw.cas.praktikum.parser.prolog.pathers;
 import haw.cas.praktikum.objects.Auftrag;
 import haw.cas.praktikum.objects.Boerse;
 import haw.cas.praktikum.objects.LKW;
-import haw.cas.praktikum.parser.MObjektReposetory;
+import haw.cas.praktikum.objects.Umladebucht;
+import haw.cas.praktikum.parser.MObjektRepository;
 import haw.cas.praktikum.parser.Obj.MObjekt;
 import haw.cas.praktikum.parser.prolog.PrologParser;
 
@@ -17,14 +18,13 @@ public class StoredInParser implements PrologParser {
 		String auftragS = param[0];
 		String besitzerS = param[1];
 		
-		Auftrag auftrag = (Auftrag) MObjektReposetory.get(auftragS);
-		MObjekt besitzer = MObjektReposetory.get(besitzerS);
+		Auftrag auftrag = (Auftrag) MObjektRepository.get(auftragS);
+		MObjekt besitzer = MObjektRepository.get(besitzerS);
 		if(besitzer instanceof LKW){
 			((LKW) besitzer).addAuftrag(auftrag);
 		}else if(besitzer instanceof Boerse){
 			((Boerse) besitzer).addAuftrag(auftrag);
-		}
-		else{
+		}else{
 			System.err.println("Ein Auftrag kann der Instanz " + besitzerS + " nicht zugewiesen werden.");
 		}
 	}

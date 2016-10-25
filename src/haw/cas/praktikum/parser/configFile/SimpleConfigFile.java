@@ -14,18 +14,16 @@ public class SimpleConfigFile implements ConfigFile {
 
 	@Override
 	public void addToSection(int section, String textToAdd) {
-		String l;
-		if((l = list.get(section))==null){
-			list.set(section, textToAdd+"\n");
-		}else{
-			list.set(section,l+textToAdd+"\n");
-		}
+		if(section>=10) return;
+		String l = list.get(section);
+		list.set(section,l+textToAdd+"\n");
 	}
 
 	@Override
 	public void store() {
-		for(String s: list){
-			System.out.print(s);
+		for(int i = 0;i< 10 ;i++){
+			System.out.println("%section : "+i);
+			System.out.print(list.get(i));
 		}
 	}
 

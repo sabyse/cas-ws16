@@ -5,16 +5,16 @@ import haw.cas.praktikum.parser.configFile.SimpleConfigFile;
 import haw.cas.praktikum.parser.prolog.PrologGenerator;
 import haw.cas.praktikum.parser.prolog.PrologParser;
 import haw.cas.praktikum.parser.prolog.generators.AkteurGenerator;
-import haw.cas.praktikum.parser.prolog.generators.AuftragsGenGenerator;
-import haw.cas.praktikum.parser.prolog.generators.EreignisGenGenerator;
-import haw.cas.praktikum.parser.prolog.generators.EreignisGenerator;
+import haw.cas.praktikum.parser.prolog.generators.AuftragsGenerator;
+import haw.cas.praktikum.parser.prolog.generators.GenGenerator;
 import haw.cas.praktikum.parser.prolog.generators.KonsortiumGenerator;
 import haw.cas.praktikum.parser.prolog.generators.LKWGenerator;
 import haw.cas.praktikum.parser.prolog.generators.LocalServiceGenerator;
-import haw.cas.praktikum.parser.prolog.generators.OrtGenerator;
+import haw.cas.praktikum.parser.prolog.generators.NetGenerator;
 import haw.cas.praktikum.parser.prolog.pathers.AkteurParser;
 import haw.cas.praktikum.parser.prolog.pathers.AuftragParser;
 import haw.cas.praktikum.parser.prolog.pathers.AuftragsGenParser;
+import haw.cas.praktikum.parser.prolog.pathers.BelegtParser;
 import haw.cas.praktikum.parser.prolog.pathers.BoerseParser;
 import haw.cas.praktikum.parser.prolog.pathers.EingetragenParser;
 import haw.cas.praktikum.parser.prolog.pathers.EreignisGenParser;
@@ -30,6 +30,7 @@ import haw.cas.praktikum.parser.prolog.pathers.Printer;
 import haw.cas.praktikum.parser.prolog.pathers.SchwarzesBrettParser;
 import haw.cas.praktikum.parser.prolog.pathers.StoredInParser;
 import haw.cas.praktikum.parser.prolog.pathers.StrasseParser;
+import haw.cas.praktikum.parser.prolog.pathers.SubParser;
 import haw.cas.praktikum.parser.prolog.pathers.TankstelleParser;
 import haw.cas.praktikum.parser.prolog.pathers.TeilnehmerParser;
 import haw.cas.praktikum.parser.prolog.pathers.UmladebuchtParser;
@@ -52,31 +53,35 @@ public final class Parser {
 
 	static void init() {
 
-		MObjektReposetory.clear();
+		MObjektRepository.clear();
 
 		functionMap = new HashMap<>();
-		functionMap.put("print", new Printer());
+		functionMap.put("akteur", new AkteurParser());
 		functionMap.put("ort", new OrtParser());
 		functionMap.put("strasse", new StrasseParser());
-		functionMap.put("akteur", new AkteurParser());
 		functionMap.put("ereignis", new EreignisParser());
 		functionMap.put("ereignisgen", new EreignisGenParser());
 		functionMap.put("auftragsgen", new AuftragsGenParser());
 		functionMap.put("zustaendig", new ZustaendigParser());
 		functionMap.put("tankstelle", new TankstelleParser());
+		functionMap.put("belegt", new BelegtParser());
 		functionMap.put("handelsregister", new HandelsregisterParser());
+		functionMap.put("eingetragen", new EingetragenParser());
 		functionMap.put("schwarzesbrett", new SchwarzesBrettParser());
 		functionMap.put("sbnachricht", new NachrichtParser());
 		functionMap.put("umladebucht", new UmladebuchtParser());
 		functionMap.put("boerse", new BoerseParser());
+		functionMap.put("funk", new FunkParser());
+		functionMap.put("linkLocal", new LinkLocalServiceParser());
 		functionMap.put("lkw", new LKWParser());
 		functionMap.put("auftrag", new AuftragParser());
+		functionMap.put("sub", new SubParser());
 		functionMap.put("storedIn", new StoredInParser());
-		functionMap.put("funk", new FunkParser());
 		functionMap.put("konsortium", new KonsortiumParser());
-		functionMap.put("eingetragen", new EingetragenParser());
 		functionMap.put("teilnehmer", new TeilnehmerParser());
-
+	
+		functionMap.put("print", new Printer());
+		
 		// functionMap.put(Funk.class.getName().toLowerCase(), new
 		// StrasseParser());
 		// functionMap.put(SchwarzesBrett.class.getName().toLowerCase(), new
@@ -85,17 +90,16 @@ public final class Parser {
 		// TankstelleParser());
 		// functionMap.put(Umladebucht.class.getName().toLowerCase(), new
 		// UmladebuchtParser());
-		functionMap.put("linkLocal", new LinkLocalServiceParser());
-
+		
 		generatorList = new ArrayList<>();
-		generatorList.add(new OrtGenerator());
-		generatorList.add(new LocalServiceGenerator());
+
 		generatorList.add(new AkteurGenerator());
-		generatorList.add(new EreignisGenerator());
-		generatorList.add(new EreignisGenGenerator());
-		generatorList.add(new AuftragsGenGenerator());
-		generatorList.add(new LKWGenerator());
+		generatorList.add(new AuftragsGenerator());
+		generatorList.add(new GenGenerator());
 		generatorList.add(new KonsortiumGenerator());
+		generatorList.add(new LKWGenerator());
+		generatorList.add(new LocalServiceGenerator());
+		generatorList.add(new NetGenerator());
 	}
 
 	public static void main(String[] args) {
@@ -111,7 +115,7 @@ public final class Parser {
 	public static void store(String datei) {
 		ConfigFile cf = new SimpleConfigFile(datei);
 		for (PrologGenerator pg : generatorList) {
-			pg.generate(cf, MObjektReposetory.getStream());
+			pg.generate(cf, MObjektRepository.getStream());
 		}
 		;
 		cf.store();

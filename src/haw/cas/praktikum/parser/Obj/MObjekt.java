@@ -2,23 +2,23 @@ package haw.cas.praktikum.parser.Obj;
 
 import java.util.UUID;
 
-import haw.cas.praktikum.parser.MObjektReposetory;
+import haw.cas.praktikum.parser.MObjektRepository;
 
 public class MObjekt {
 	String key;
 	
 	protected MObjekt(){
 		this.key = UUID.randomUUID().toString();
-		MObjektReposetory.add(key, this);
+		MObjektRepository.add(key, this);
 	}
 	protected MObjekt(String key){
 		this.key = key;	//TODO: prüfen ob key bereits vorhanden
-		MObjektReposetory.add(key, this);
+		MObjektRepository.add(key, this);
 	}
 	public void updateKey(String key){
-		MObjektReposetory.remove(this.key);
+		MObjektRepository.remove(this.key);
 		this.key=key;
-		MObjektReposetory.add(this.key, this);
+		MObjektRepository.add(this.key, this);
 	}
 	public String getUID(){
 		return key;

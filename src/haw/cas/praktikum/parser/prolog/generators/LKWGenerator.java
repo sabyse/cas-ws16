@@ -17,7 +17,7 @@ public class LKWGenerator implements PrologGenerator {
 													// Auslagern in andere
 													// Klasse ?
 				lkw -> {
-					cf.addToSection(1,
+					cf.addToSection(2,
 							"lkw(" + lkw.getUID() + ","
 									+ ((LKW) lkw).getBesitzer().getUID() + ","
 									+ ((LKW) lkw).getPos().getUID() + ","
@@ -26,7 +26,7 @@ public class LKWGenerator implements PrologGenerator {
 					// ArrayList<Auftrag> ladung = ((LKW) lkw)).getLadung();
 					if (!((LKW) lkw).getLadung().isEmpty()) {
 						for (Auftrag a : ((LKW) lkw).getLadung()) {
-							cf.addToSection(2, "storedIn(" + a.getUID() + ","
+							cf.addToSection(3, "storedIn(" + a.getUID() + ","
 									+ ((LKW) lkw).getUID() + ").");
 						}
 					}
