@@ -11,19 +11,22 @@ public class Akteur extends MObjekt {
     private List<Auftrag> auftragList;
     private double kontostand;
     private List<Akteur> bekannte;
+    private SpielfeldAktiv saktiv;
 
-    public Akteur(String id, double kontostand) {
+    public Akteur(String id, double kontostand, SpielfeldAktiv saktiv) {
         super(id);
         this.kontostand = kontostand;
         this.auftragList = new ArrayList<>();
         this.bekannte = new ArrayList<>();
+        this.saktiv = saktiv;
     }
 
-    public Akteur(double kontostand) {
+    public Akteur(double kontostand, SpielfeldAktiv saktiv) {
         super();
         this.kontostand = kontostand;
         this.auftragList = new ArrayList<>();
         this.bekannte = new ArrayList<>();
+        this.saktiv = saktiv;
     }
 
     public Double getKontostand() {

@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d993bc4-cc40-4540-8591-bcecdd945c42" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/haw/cas/praktikum/objects/SpielfeldAktiv.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/haw/cas/praktikum/objects/Strassennetz.java" afterPath="$PROJECT_DIR$/src/haw/cas/praktikum/objects/Strassennetz.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/haw/cas/praktikum/objects/Akteur.java" afterPath="$PROJECT_DIR$/src/haw/cas/praktikum/objects/Akteur.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/haw/cas/praktikum/objects/SpielfeldAktiv.java" afterPath="$PROJECT_DIR$/src/haw/cas/praktikum/objects/SpielfeldAktiv.java" />
     </list>
     <ignored path="cas-ws16.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,8 +28,8 @@
       <file leaf-file-name="Strassennetz.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/haw/cas/praktikum/objects/Strassennetz.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+            <state relative-caret-position="187">
+              <caret line="15" column="54" selection-start-line="15" selection-start-column="54" selection-end-line="15" selection-end-column="54" />
               <folding>
                 <element signature="e#549#550#0" expanded="true" />
                 <element signature="e#573#574#0" expanded="true" />
@@ -38,18 +38,58 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SpielfeldAktiv.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Tankstelle.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/haw/cas/praktikum/objects/Tankstelle.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Ort.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/haw/cas/praktikum/objects/Ort.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+              <folding>
+                <element signature="e#1120#1121#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SpielfeldAktiv.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/haw/cas/praktikum/objects/SpielfeldAktiv.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="23" column="9" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
+            <state relative-caret-position="608">
+              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#320#321#0" expanded="true" />
-                <element signature="e#352#353#0" expanded="true" />
-                <element signature="e#391#392#0" expanded="true" />
-                <element signature="e#421#422#0" expanded="true" />
+                <element signature="e#334#335#0" expanded="true" />
+                <element signature="e#366#367#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Trucker.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/haw/cas/praktikum/objects/Trucker.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Akteur.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/haw/cas/praktikum/objects/Akteur.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="403">
+              <caret line="28" column="29" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -84,7 +124,6 @@
         <option value="$PROJECT_DIR$/src/haw/cas/praktikum/parser/MObjektReposetory.java" />
         <option value="$PROJECT_DIR$/src/haw/cas/praktikum/objects/Auftragsgenerator.java" />
         <option value="$PROJECT_DIR$/src/haw/cas/praktikum/objects/Boerse.java" />
-        <option value="$PROJECT_DIR$/src/haw/cas/praktikum/objects/Akteur.java" />
         <option value="$PROJECT_DIR$/src/haw/cas/praktikum/objects/Auftrag.java" />
         <option value="$PROJECT_DIR$/src/haw/cas/praktikum/objects/Ereignis.java" />
         <option value="$PROJECT_DIR$/src/haw/cas/praktikum/objects/Ereignisgenerator.java" />
@@ -103,8 +142,9 @@
         <option value="$PROJECT_DIR$/src/haw/cas/praktikum/objects/Funknetz.java" />
         <option value="$PROJECT_DIR$/src/haw/cas/praktikum/objects/Ortsnetz.java" />
         <option value="$PROJECT_DIR$/src/haw/cas/praktikum/objects/Netz.java" />
-        <option value="$PROJECT_DIR$/src/haw/cas/praktikum/objects/Strassennetz.java" />
         <option value="$PROJECT_DIR$/src/haw/cas/praktikum/objects/SpielfeldAktiv.java" />
+        <option value="$PROJECT_DIR$/src/haw/cas/praktikum/objects/Strassennetz.java" />
+        <option value="$PROJECT_DIR$/src/haw/cas/praktikum/objects/Akteur.java" />
       </list>
     </option>
   </component>
@@ -656,7 +696,7 @@
       <workItem from="1481646622045" duration="10000" />
       <workItem from="1481722714657" duration="953000" />
       <workItem from="1481799527690" duration="11000" />
-      <workItem from="1482239763292" duration="1436000" />
+      <workItem from="1482239763292" duration="2979000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <created>1477307879600</created>
@@ -679,11 +719,18 @@
       <option name="project" value="LOCAL" />
       <updated>1481058172735</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="SpielfeldAktiv hinzugefugt">
+      <created>1482241221375</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1482241221375</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8685000" />
+    <option name="totallyTimeSpent" value="10228000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -730,7 +777,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial" />
     <MESSAGE value="added all new version files" />
-    <option name="LAST_COMMIT_MESSAGE" value="added all new version files" />
+    <MESSAGE value="SpielfeldAktiv hinzugefugt" />
+    <option name="LAST_COMMIT_MESSAGE" value="SpielfeldAktiv hinzugefugt" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -902,26 +950,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/haw/cas/praktikum/objects/Tankstelle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/haw/cas/praktikum/objects/Funknetz.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/haw/cas/praktikum/objects/Trucker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -950,24 +982,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/haw/cas/praktikum/objects/Akteur.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="14" column="49" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/haw/cas/praktikum/objects/Ort.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-          <folding>
-            <element signature="e#1120#1121#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/haw/cas/praktikum/objects/Netz.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -984,10 +998,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/haw/cas/praktikum/objects/Tankstelle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/haw/cas/praktikum/objects/Ort.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding>
+            <element signature="e#1120#1121#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/haw/cas/praktikum/objects/Trucker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/haw/cas/praktikum/objects/Strassennetz.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+        <state relative-caret-position="187">
+          <caret line="15" column="54" selection-start-line="15" selection-start-column="54" selection-end-line="15" selection-end-column="54" />
           <folding>
             <element signature="e#549#550#0" expanded="true" />
             <element signature="e#573#574#0" expanded="true" />
@@ -997,15 +1037,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/haw/cas/praktikum/objects/SpielfeldAktiv.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="23" column="9" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
+        <state relative-caret-position="608">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#320#321#0" expanded="true" />
-            <element signature="e#352#353#0" expanded="true" />
-            <element signature="e#391#392#0" expanded="true" />
-            <element signature="e#421#422#0" expanded="true" />
+            <element signature="e#334#335#0" expanded="true" />
+            <element signature="e#366#367#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/haw/cas/praktikum/objects/Akteur.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="28" column="29" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>

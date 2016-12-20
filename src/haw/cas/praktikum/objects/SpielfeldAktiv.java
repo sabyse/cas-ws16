@@ -7,7 +7,7 @@ import java.util.Map;
 /**
  * Created by Khang on 20.12.16.
  */
-public class SpielfeldAktiv {
+public class SpielfeldAktiv extends Thread{
 
     private ArrayList<Akteur> trucker = new ArrayList<>();
     private Strassennetz netz;
@@ -16,8 +16,9 @@ public class SpielfeldAktiv {
         this.netz = netz;
     }
 
-    public void addTrucker(Akteur t){
-        trucker.add(t);
+    public void addTrucker(Ort o, Akteur a){
+        trucker.add(a);
+        netz.getTruckerOrt().get(o).add(a);
     }
 
     public void setTruckerOrt(Ort o, Akteur a){
@@ -32,6 +33,10 @@ public class SpielfeldAktiv {
             }
             netz.getTruckerOrt().get(o).add(a);
         }
+    }
+
+    public void run(){
+
     }
 
 }
