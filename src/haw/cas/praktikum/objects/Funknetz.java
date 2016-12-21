@@ -5,7 +5,7 @@ package haw.cas.praktikum.objects;
  */
 public class Funknetz extends Netz {
 
-    public boolean sendeNachricht(Akteur self, Akteur other, Nachricht n){
+    public boolean sendeNachricht(Akteur other, Nachricht n){
         return other.addNachricht(n);
     }
 
