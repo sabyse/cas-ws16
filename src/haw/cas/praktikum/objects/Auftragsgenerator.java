@@ -35,6 +35,7 @@ public class Auftragsgenerator extends MObjekt implements Auftraggeber, Runnable
         this.zustaendigFuer = new ArrayList<>();
         this.zustaendigeBoersen = new ArrayList<>();
     }
+
     
     public Auftragsgenerator(int aktivitaetsrate) {
         super();
@@ -46,6 +47,12 @@ public class Auftragsgenerator extends MObjekt implements Auftraggeber, Runnable
 
     public int getAktivitaetsrate() {
         return aktivitaetsrate;
+    }
+
+    public void bezahlen(Auftraggeber auftragnehmer, Auftrag auftrag){
+	if ((auftrag.isFinished = true) && (auftrag.auftraggeber == auftragnehmer){
+		auftragnehmer.kontoStand = auftragnehmer.kontoStand + auftrag.gewinn;
+	}
     }
 
     public void setAktivitaetsrate(int aktivitaetsrate) {
