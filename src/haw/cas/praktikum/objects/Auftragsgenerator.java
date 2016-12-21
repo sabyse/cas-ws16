@@ -25,7 +25,6 @@ public class Auftragsgenerator extends MObjekt implements Auftraggeber, Runnable
     private int aktivitaetsrate;
     private List<Ortsnetz> zustaendigFuer;	
     private List<Boerse> zustaendigeBoersen;
-    private Ortsnetz orte;
 
     public Auftragsgenerator(String name, int aktivitaetsrate, Ortsnetz zustaendigFuer) {
         super(name);
@@ -33,8 +32,7 @@ public class Auftragsgenerator extends MObjekt implements Auftraggeber, Runnable
         this.sleepTime = SLEEP_TIME_MAX / aktivitaetsrate;
         this.zustaendigFuer = new ArrayList<>();
         this.zustaendigeBoersen = new ArrayList<>();
-        this.orte = zustaendigFuer;
-        this.zustaendigFuer.add(orte);
+        this.zustaendigFuer.add(zustaendigFuer);
     }
 
     
