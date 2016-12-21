@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 /**
  * Created by Khang on 29.11.16.
  */
-public abstract class Netz extends MObjekt {
+public abstract class Netz extends MObjekt implements NetzFaehig{
 
     private HashMap<NetzFaehig,HashMap<NetzFaehig,Integer>> verbindungsMatrix = new HashMap<NetzFaehig,HashMap<NetzFaehig,Integer>>();
 
