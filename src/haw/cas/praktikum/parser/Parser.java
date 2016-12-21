@@ -1,5 +1,11 @@
 package haw.cas.praktikum.parser;
 
+import haw.cas.praktikum.objects.Akteur;
+import haw.cas.praktikum.objects.LKW;
+import haw.cas.praktikum.objects.Ort;
+import haw.cas.praktikum.objects.Ortsnetz;
+import haw.cas.praktikum.objects.SpielfeldAktiv;
+import haw.cas.praktikum.objects.Strassennetz;
 import haw.cas.praktikum.parser.configFile.ConfigFile;
 import haw.cas.praktikum.parser.configFile.SimpleConfigFile;
 import haw.cas.praktikum.parser.prolog.PrologGenerator;
@@ -11,30 +17,6 @@ import haw.cas.praktikum.parser.prolog.generators.KonsortiumGenerator;
 import haw.cas.praktikum.parser.prolog.generators.LKWGenerator;
 import haw.cas.praktikum.parser.prolog.generators.LocalServiceGenerator;
 import haw.cas.praktikum.parser.prolog.generators.NetGenerator;
-import haw.cas.praktikum.parser.prolog.pathers.AkteurParser;
-import haw.cas.praktikum.parser.prolog.pathers.AuftragParser;
-import haw.cas.praktikum.parser.prolog.pathers.AuftragsGenParser;
-import haw.cas.praktikum.parser.prolog.pathers.BelegtParser;
-import haw.cas.praktikum.parser.prolog.pathers.BoerseParser;
-import haw.cas.praktikum.parser.prolog.pathers.EingetragenParser;
-import haw.cas.praktikum.parser.prolog.pathers.EreignisGenParser;
-import haw.cas.praktikum.parser.prolog.pathers.EreignisParser;
-import haw.cas.praktikum.parser.prolog.pathers.FunkParser;
-import haw.cas.praktikum.parser.prolog.pathers.HandelsregisterParser;
-import haw.cas.praktikum.parser.prolog.pathers.KonsortiumParser;
-import haw.cas.praktikum.parser.prolog.pathers.LKWParser;
-import haw.cas.praktikum.parser.prolog.pathers.LinkLocalServiceParser;
-import haw.cas.praktikum.parser.prolog.pathers.NachrichtParser;
-import haw.cas.praktikum.parser.prolog.pathers.OrtParser;
-import haw.cas.praktikum.parser.prolog.pathers.Printer;
-import haw.cas.praktikum.parser.prolog.pathers.SchwarzesBrettParser;
-import haw.cas.praktikum.parser.prolog.pathers.StoredInParser;
-import haw.cas.praktikum.parser.prolog.pathers.StrasseParser;
-import haw.cas.praktikum.parser.prolog.pathers.SubParser;
-import haw.cas.praktikum.parser.prolog.pathers.TankstelleParser;
-import haw.cas.praktikum.parser.prolog.pathers.TeilnehmerParser;
-import haw.cas.praktikum.parser.prolog.pathers.UmladebuchtParser;
-import haw.cas.praktikum.parser.prolog.pathers.ZustaendigParser;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -56,31 +38,47 @@ public final class Parser {
 		MObjektRepository.clear();
 
 		functionMap = new HashMap<>();
-		functionMap.put("akteur", new AkteurParser());
-		functionMap.put("ort", new OrtParser());
-		functionMap.put("strasse", new StrasseParser());
-		functionMap.put("ereignis", new EreignisParser());
-		functionMap.put("ereignisgen", new EreignisGenParser());
-		functionMap.put("auftragsgen", new AuftragsGenParser());
-		functionMap.put("zustaendig", new ZustaendigParser());
-		functionMap.put("tankstelle", new TankstelleParser());
-		functionMap.put("belegt", new BelegtParser());
-		functionMap.put("handelsregister", new HandelsregisterParser());
-		functionMap.put("eingetragen", new EingetragenParser());
-		functionMap.put("schwarzesbrett", new SchwarzesBrettParser());
-		functionMap.put("sbnachricht", new NachrichtParser());
-		functionMap.put("umladebucht", new UmladebuchtParser());
-		functionMap.put("boerse", new BoerseParser());
-		functionMap.put("funk", new FunkParser());
-		functionMap.put("linkLocal", new LinkLocalServiceParser());
-		functionMap.put("lkw", new LKWParser());
-		functionMap.put("auftrag", new AuftragParser());
-		functionMap.put("sub", new SubParser());
-		functionMap.put("storedIn", new StoredInParser());
-		functionMap.put("konsortium", new KonsortiumParser());
-		functionMap.put("teilnehmer", new TeilnehmerParser());
-	
-		functionMap.put("print", new Printer());
+		functionMap.put("ortsNetz", (param)->{
+			assert param.length == 0 : "the Parameter Length for an ort must be 0, but was " + param.length;
+			(new Strassennetz()).updateKey("__ORTS_NETZ__");
+		});
+		
+		functionMap.put("ort", (param)->{
+			assert param.length == 1 : "the Parameter Length for an ort must be 1, but was " + param.length;
+			Ortsnetz o = new Ortsnetz(param[0]);
+			o.updateKey(param[0]);
+			Strassennetz on = (Strassennetz)MObjektRepository.get("__ORTS_NETZ__");
+			on.add(o);
+		});
+		
+		functionMap.put("strasse", (param)->{
+			assert param.length == 2 : "the Parameter Length for an ort must be 2, but was " + param.length;
+			Ortsnetz o1 = (Ortsnetz)MObjektRepository.get(param[0]);
+			Ortsnetz o2 = (Ortsnetz)MObjektRepository.get(param[1]);
+			Strassennetz on = (Strassennetz)MObjektRepository.get("__ORTS_NETZ__");
+			on.connect(o1, o2);
+		});
+		
+		functionMap.put("spielfeld", (param)->{
+			assert param.length == 0 : "the Parameter Length for an ort must be 0, but was " + param.length;
+			Strassennetz on = (Strassennetz)MObjektRepository.get("__ORTS_NETZ__");
+			SpielfeldAktiv sf = new SpielfeldAktiv(on);
+			sf.updateKey("__SPIELFELD__");
+		});
+		
+		functionMap.put("akteur", (param)->{
+			assert param.length == 2 : "the Parameter Length for an ort must be 2, but was " + param.length;
+			Strassennetz on = (Strassennetz)MObjektRepository.get("__ORTS_NETZ__");
+			SpielfeldAktiv sf = (SpielfeldAktiv)MObjektRepository.get("__SPIELFELD__");
+			Akteur a = new Akteur(param[0], Double.parseDouble(param[1]), sf);
+		});
+		
+		
+		
+		    
+		
+		
+		
 		
 		// functionMap.put(Funk.class.getName().toLowerCase(), new
 		// StrasseParser());
@@ -91,7 +89,7 @@ public final class Parser {
 		// functionMap.put(Umladebucht.class.getName().toLowerCase(), new
 		// UmladebuchtParser());
 		
-		generatorList = new ArrayList<>();
+		/*generatorList = new ArrayList<>();
 
 		generatorList.add(new AkteurGenerator());
 		generatorList.add(new AuftragsGenerator());
@@ -99,7 +97,7 @@ public final class Parser {
 		generatorList.add(new KonsortiumGenerator());
 		generatorList.add(new LKWGenerator());
 		generatorList.add(new LocalServiceGenerator());
-		generatorList.add(new NetGenerator());
+		generatorList.add(new NetGenerator());*/
 	}
 
 	public static void main(String[] args) {
@@ -107,9 +105,10 @@ public final class Parser {
 		long now = System.currentTimeMillis();
 		parse("test.P");
 		System.out.println(System.currentTimeMillis() - now);
-		now = System.currentTimeMillis();
-		store("out.P");
-		System.out.println(System.currentTimeMillis() - now);
+		
+		//now = System.currentTimeMillis();
+		//store("out.P");
+		//System.out.println(System.currentTimeMillis() - now);
 	}
 
 	public static void store(String datei) {

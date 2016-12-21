@@ -50,9 +50,9 @@ public class Auftragsgenerator extends MObjekt implements Auftraggeber, Runnable
     }
 
     public void bezahlen(Auftraggeber auftragnehmer, Auftrag auftrag){
-	if ((auftrag.isFinished = true) && (auftrag.auftraggeber == auftragnehmer){
+	/*if ((auftrag.isFinished = true) && (auftrag.auftraggeber == auftragnehmer){
 		auftragnehmer.kontoStand = auftragnehmer.kontoStand + auftrag.gewinn;
-	}
+	}*///TODO:FIX IT
     }
 
     public void setAktivitaetsrate(int aktivitaetsrate) {

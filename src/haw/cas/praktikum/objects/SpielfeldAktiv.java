@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import haw.cas.praktikum.parser.Obj.MObjekt;
+
 /**
  * Created by Khang on 20.12.16.
  */
-public class SpielfeldAktiv extends Thread{
+public class SpielfeldAktiv extends MObjekt implements Runnable{
 
     private ArrayList<Akteur> trucker = new ArrayList<>();
     private Strassennetz netz;
@@ -35,8 +37,11 @@ public class SpielfeldAktiv extends Thread{
         }
     }
 
-    public void run(){
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
 
-    }
 
 }
