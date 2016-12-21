@@ -12,6 +12,7 @@ public class Akteur extends MObjekt {
     private double kontostand;
     private List<Akteur> bekannte;
     private SpielfeldAktiv saktiv;
+    private ArrayList<Nachricht> nachrichten;
 
     public Akteur(String id, double kontostand, SpielfeldAktiv saktiv) {
         super(id);
@@ -19,6 +20,7 @@ public class Akteur extends MObjekt {
         this.auftragList = new ArrayList<>();
         this.bekannte = new ArrayList<>();
         this.saktiv = saktiv;
+        this.nachrichten = new ArrayList<>();
     }
 
     public Akteur(double kontostand, SpielfeldAktiv saktiv) {
@@ -27,6 +29,7 @@ public class Akteur extends MObjekt {
         this.auftragList = new ArrayList<>();
         this.bekannte = new ArrayList<>();
         this.saktiv = saktiv;
+        this.nachrichten = new ArrayList<>();
     }
 
     public Double getKontostand() {
@@ -45,6 +48,10 @@ public class Akteur extends MObjekt {
 
     public void removeAuftragList(Auftrag auftrag) {
         this.auftragList.remove(auftrag);
+    }
+
+    public boolean addNachricht(Nachricht n){
+        return nachrichten.add(n);
     }
 
 }
