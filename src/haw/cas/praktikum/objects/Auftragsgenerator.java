@@ -23,17 +23,18 @@ public class Auftragsgenerator extends MObjekt implements Auftraggeber, Runnable
     // das Strassennetz ist notwendig
 
     private int aktivitaetsrate;
-    private List<Ort> zustaendigFuer;
- // private List<Object> zustaendigFuer;	
+    private List<Ortsnetz> zustaendigFuer;	
     private List<Boerse> zustaendigeBoersen;
- // private Ortsnetz orte;
+    private Ortsnetz orte;
 
-    public Auftragsgenerator(String name, int aktivitaetsrate) {
+    public Auftragsgenerator(String name, int aktivitaetsrate, Ortsnetz zustaendigFuer) {
         super(name);
         this.aktivitaetsrate = aktivitaetsrate;
         this.sleepTime = SLEEP_TIME_MAX / aktivitaetsrate;
         this.zustaendigFuer = new ArrayList<>();
         this.zustaendigeBoersen = new ArrayList<>();
+        this.orte = zustaendigFuer;
+        this.zustaendigFuer.add(orte);
     }
 
     
@@ -49,25 +50,21 @@ public class Auftragsgenerator extends MObjekt implements Auftraggeber, Runnable
         return aktivitaetsrate;
     }
 
-    public void bezahlen(Auftraggeber auftragnehmer, Auftrag auftrag){
-	/*if ((auftrag.isFinished = true) && (auftrag.auftraggeber == auftragnehmer){
+    public void bezahlen(Akteur auftragnehmer, Auftrag auftrag){
+	if ((auftrag.isFinished = true) && (auftrag.auftraggeber == auftragnehmer)){
 		auftragnehmer.kontoStand = auftragnehmer.kontoStand + auftrag.gewinn;
-	}*///TODO:FIX IT
+	}
     }
 
     public void setAktivitaetsrate(int aktivitaetsrate) {
         this.aktivitaetsrate = aktivitaetsrate;
     }
 
-    public void bereichErweitern(Ort o) {
+    public void bereichErweitern(Ortsnetz o) {
         zustaendigFuer.add(o);
     }
 
-/*    public void bereichErweitern() {,		
-        zustaendigFuer.add(orte.get());
-    }*/
-
-    public void bereichVerkleinern(Ort o) {
+    public void bereichVerkleinern(Ortsnetz o) {
         zustaendigFuer.remove(o);
     }
 
@@ -88,8 +85,8 @@ public class Auftragsgenerator extends MObjekt implements Auftraggeber, Runnable
 		while(true) {
 			int goods = MIN_GOODS_PER_TASK + rnd.nextInt(MAX_GOODS_PER_TASK - MIN_GOODS_PER_TASK);
 			int value = goods * (MIN_VALUE_PER_GOOD + rnd.nextInt(MAX_VALUE_PER_GOOD - MIN_VALUE_PER_GOOD));
-			Ort startOrt = zustaendigFuer.get(rnd.nextInt(zustaendigFuer.size()));
-			Ort endOrt;
+			Ortsnetz startOrt = zustaendigFuer.get(rnd.nextInt(zustaendigFuer.size()));
+			Ortsnetz endOrt; 
 			do {
 				endOrt = zustaendigFuer.get(rnd.nextInt(zustaendigFuer.size()));
 			} while(endOrt != startOrt);
